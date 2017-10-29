@@ -1,0 +1,60 @@
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator' 
+
+version = "1.0"
+description = "Sample project for the BDD in Action Masterclass"
+
+sourceCompatibility = 1.8
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.5'
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+
+buildscript {
+    project.ext {
+        serenityVersion = '1.6.7-rc.1'
+        serenityCucumberVersion = '1.5.15'
+        
+    }
+
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:${serenityVersion}")
+    }
+}
+
+dependencies {
+   
+compile group: 'net.serenity-bdd', name: 'serenity-gradle-plugin', version: '1.6.7-rc.1'
+
+    testCompile "junit:junit:4.12"
+    testCompile "org.assertj:assertj-core:3.1.0"
+    testCompile "org.hamcrest:hamcrest-core:1.3"  
+    // Serenity dependencies
+    //testCompile "net.serenity-bdd:serenity-core:${serenityVersion}"
+    compile group: 'net.serenity-bdd', name: 'serenity-core', version: '1.6.7-rc.1'
+    //testCompile "net.serenity-bdd:serenity-junit:${serenityVersion}"
+	compile group: 'net.serenity-bdd', name: 'serenity-junit', version: '1.6.7-rc.1'
+    //testCompile "net.serenity-bdd:serenity-cucumber:${serenityCucumberVersion}"
+	compile group: 'net.serenity-bdd', name: 'serenity-cucumber', version: '1.5.15'
+
+    
+    
+    testCompile('org.slf4j:slf4j-simple:1.7.7')
+    testCompile('org.assertj:assertj-core:1.7.0')
+}
+
+gradle.startParameter.continueOnFailure = true                          
