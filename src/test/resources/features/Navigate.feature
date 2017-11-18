@@ -1,3 +1,4 @@
+@Smoketest
 Feature:  Navigate from Home Page
 Scenario: User should be able to Navigate to Page selected
     Given Mercury Tours Application is launched
