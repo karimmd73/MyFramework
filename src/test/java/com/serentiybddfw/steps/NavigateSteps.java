@@ -24,7 +24,7 @@ public class NavigateSteps extends ScenarioSteps {
 	@Step
 	public void navigateToPage(String page) throws Exception {
 		homePage.navigateToPage(page);
-		homePage.wait(5000);
+	
 
 	}
 

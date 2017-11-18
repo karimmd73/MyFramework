@@ -1,0 +1,111 @@
+
+	   CDwindow-2cc6f9b3-de8f-48dd-afc0-21a9a7551b29
+Handle:CDwindow-2cc6f9b3-de8f-48dd-afc0-21a9a7551b29 Title:Sample Sites - Google Sites
+
+       CDwindow-95161e83-c7d3-4d0c-a5f5-e6f9b5bea25d
+Handle:CDwindow-95161e83-c7d3-4d0c-a5f5-e6f9b5bea25dTitle:Sample Sites - Google Sites
+
+Parent:Sample Sites - Google SitesCDwindow-95161e83-c7d3-4d0c-a5f5-e6f9b5bea25d
+
+Make sure you run the command prompt or batch file as administrator.
+********************************************************************
+
+
+java -jar selenium-server-standalone.jar -role hub -hubConfig hubConfig.json
+ -debug
+
+
+{"_comment"
+ : "Configuration for Hub - hubConfig.json",
+"host":
+ ip, "maxSessions":
+5,
+"port":
+4444,
+"cleanupCycle":
+5000,
+"timeout":
+300000,
+"newSessionWaitTimeout":
+-1,
+"servlets":
+ [], "prioritizer":
+null,
+"capabilityMatcher":
+"org.openqa.grid.internal.utils.DefaultCapabilityMatcher",
+"throwOnCapabilityNotPresent":
+true,
+"nodePolling":
+180000,
+"platform":
+"WINDOWS"}
+
+
+
+java
+ -jar selenium-server-standalone.jar -role node -hub http://localhost:4444
+
+
+
+java
+ -Dwebdriver.chrome.driver=chromedriver.exe -jar selenium-server-standalone.jar -role node -nodeConfig node1Config.json
+
+
+
+{
+"capabilities":
+ [ { "browserName":
+"firefox",
+"acceptSslCerts":
+true,
+"javascriptEnabled":
+true,
+"takesScreenshot":
+false,
+"firefox_profile":
+"",
+"browser-version":
+"27",
+"platform":
+"WINDOWS",
+"maxInstances":
+5,
+"firefox_binary":
+"",
+"cleanSession":
+true
+ }, { "browserName":
+"chrome",
+"maxInstances":
+5,
+"platform":
+"WINDOWS",
+"webdriver.chrome.driver":
+"C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+ }, { "browserName":
+"internet explorer",
+"maxInstances":
+1,
+"platform":
+"WINDOWS",
+"webdriver.ie.driver":
+"C:/Program Files (x86)/Internet Explorer/iexplore.exe"
+ } ], "configuration":
+ { "_comment"
+ : "Configuration for Node",
+"cleanUpCycle":
+2000,
+"timeout":
+30000,
+"proxy":
+"org.openqa.grid.selenium.proxy.WebDriverRemoteProxy",
+"port":
+5555,
+"host":
+ ip, "register":
+true,
+"hubPort":
+4444,
+"maxSessions":
+5
+ } }
