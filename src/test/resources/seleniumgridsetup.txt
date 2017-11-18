@@ -1,4 +1,7 @@
+ -Dcucumber.options="--tags @Smoketest" test
+ aggregate
 
+*************************************
 	   CDwindow-2cc6f9b3-de8f-48dd-afc0-21a9a7551b29
 Handle:CDwindow-2cc6f9b3-de8f-48dd-afc0-21a9a7551b29 Title:Sample Sites - Google Sites
 
