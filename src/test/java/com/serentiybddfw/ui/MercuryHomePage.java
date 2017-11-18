@@ -83,7 +83,7 @@ BasePage bp = new BasePage(getDriver());
 		System.out.println("Verify Navigation" +  childHandle);
 		 getDriver().switchTo().window(childHandle);
 		 System.out.println("Switched");
-		assertEquals( "Google Forms1",getDriver().getTitle().trim());
+		assertEquals( "Google Forms",getDriver().getTitle().trim());
 		
 		getDriver().close();
 
